@@ -45,6 +45,10 @@ from .const import (
 CHARGER_STATION = "station"
 UPDATE_INTERVAL = 30
 
+#constants for string duplication
+
+EV_STATION = "mdi:ev-station"
+
 _LOGGER = logging.getLogger(__name__)
 
 
@@ -105,7 +109,7 @@ SENSOR_TYPES: dict[str, WallboxSensorEntityDescription] = {
     ),
     CHARGER_COST_KEY: WallboxSensorEntityDescription(
         key=CHARGER_COST_KEY,
-        icon="mdi:ev-station",
+        icon=EV_STATION,
         name="Cost",
         state_class=SensorStateClass.TOTAL_INCREASING,
     ),
@@ -118,18 +122,18 @@ SENSOR_TYPES: dict[str, WallboxSensorEntityDescription] = {
     ),
     CHARGER_CURRENT_MODE_KEY: WallboxSensorEntityDescription(
         key=CHARGER_CURRENT_MODE_KEY,
-        icon="mdi:ev-station",
+        icon=EV_STATION,
         name="Current Mode",
     ),
     CHARGER_DEPOT_PRICE_KEY: WallboxSensorEntityDescription(
         key=CHARGER_DEPOT_PRICE_KEY,
-        icon="mdi:ev-station",
+        icon=EV_STATION,
         name="Depot Price",
         precision=2,
     ),
     CHARGER_STATUS_DESCRIPTION_KEY: WallboxSensorEntityDescription(
         key=CHARGER_STATUS_DESCRIPTION_KEY,
-        icon="mdi:ev-station",
+        icon=EV_STATION,
         name="Status Description",
     ),
     CHARGER_MAX_CHARGING_CURRENT_KEY: WallboxSensorEntityDescription(
