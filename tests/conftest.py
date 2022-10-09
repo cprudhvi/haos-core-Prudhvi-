@@ -598,10 +598,8 @@ def fail_on_log_exception(request, monkeypatch):
     if "no_fail_on_log_exception" in request.keywords:
         return
 
-    def log_exception(format_err, *args):
-        raise
-
-    monkeypatch.setattr("homeassistant.util.logging.log_exception", log_exception)
+    def log_exception(format_err, *args): 
+        monkeypatch.setattr("homeassistant.util.logging.log_exception", log_exception)
 
 
 @pytest.fixture

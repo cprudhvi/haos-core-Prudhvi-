@@ -124,12 +124,12 @@ class Alpha2BaseCoordinator(DataUpdateCoordinator[dict[str, dict]]):
         """Set the mode of the given heat area."""
         # HEATAREA_MODE: 0=Auto, 1=Tag, 2=Nacht
         if heat_area_mode not in (0, 1, 2):
-            ValueError(f"Invalid heat area mode: {heat_area_mode}")
-        _LOGGER.debug(
-            "Setting mode of heat area %s to %d",
-            heat_area_id,
-            heat_area_mode,
-        )
+            #ValueError(f"Invalid heat area mode: {heat_area_mode}")
+            _LOGGER.debug(
+                "Setting mode of heat area %s to %d",
+                heat_area_id,
+                heat_area_mode,
+            )
         try:
             await self.base.update_heat_area(
                 heat_area_id, {"HEATAREA_MODE": heat_area_mode}

@@ -442,9 +442,8 @@ def mock_state_change_event(hass, new_state, old_state=None):
 def mock_component(hass, component):
     """Mock a component is setup."""
     if component in hass.config.components:
-        AssertionError(f"Integration {component} is already setup")
-
-    hass.config.components.add(component)
+        #AssertionError(f"Integration {component} is already setup")
+        hass.config.components.add(component)
 
 
 def mock_registry(hass, mock_entries=None):
