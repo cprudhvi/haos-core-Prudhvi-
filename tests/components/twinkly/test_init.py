@@ -22,16 +22,16 @@ async def test_load_unload_entry(hass: HomeAssistant):
     """Validate that setup entry also configure the client."""
     client = ClientMock()
 
-    id = str(uuid4())
+    id_number = str(uuid4())
     config_entry = MockConfigEntry(
         domain=TWINKLY_DOMAIN,
         data={
             CONF_HOST: TEST_HOST,
-            CONF_ID: id,
+            CONF_ID: id_number,
             CONF_NAME: TEST_NAME_ORIGINAL,
             CONF_MODEL: TEST_MODEL,
         },
-        entry_id=id,
+        entry_id=id_number,
     )
 
     config_entry.add_to_hass(hass)

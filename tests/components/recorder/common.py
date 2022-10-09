@@ -83,17 +83,17 @@ async def async_wait_recording_done(hass: HomeAssistant) -> None:
     await hass.async_block_till_done()
 
 
-async def async_wait_purge_done(hass: HomeAssistant, max: int = None) -> None:
-    """Wait for max number of purge events.
+async def async_wait_purge_done(hass: HomeAssistant, maximum: int = None) -> None:
+    """Wait for maximum number of purge events.
 
     Because a purge may insert another PurgeTask into
     the queue after the WaitTask finishes, we need up to
     a maximum number of WaitTasks that we will put into the
     queue.
     """
-    if not max:
-        max = DEFAULT_PURGE_TASKS
-    for _ in range(max + 1):
+    if not maximum:
+        maximum = DEFAULT_PURGE_TASKS
+    for _ in range(maximum + 1):
         await async_wait_recording_done(hass)
 
 

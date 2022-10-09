@@ -121,12 +121,12 @@ async def test_get_trace(
     enable_custom_integrations,
 ):
     """Test tracing a script or automation."""
-    id = 1
+    id_number = 1
 
     def next_id():
-        nonlocal id
-        id += 1
-        return id
+        nonlocal id_number
+        id_number += 1
+        return id_number
 
     sun_config = {
         "id": "sun",
@@ -416,12 +416,12 @@ async def test_get_trace(
 async def test_restore_traces(hass, hass_storage, hass_ws_client, domain):
     """Test restored traces."""
     hass.state = CoreState.not_running
-    id = 1
+    id_number = 1
 
     def next_id():
-        nonlocal id
-        id += 1
-        return id
+        nonlocal id_number
+        id_number += 1
+        return id_number
 
     saved_traces = json.loads(load_fixture(f"trace/{domain}_saved_traces.json"))
     hass_storage["trace.saved_traces"] = saved_traces
@@ -505,7 +505,7 @@ async def test_get_invalid_trace(hass, hass_ws_client, domain):
 )
 async def test_trace_overflow(hass, hass_ws_client, domain, stored_traces):
     """Test the number of stored traces per script or automation is limited."""
-    id = 1
+    id_number = 1
 
     trace_uuids = []
 
@@ -580,7 +580,7 @@ async def test_restore_traces_overflow(
 ):
     """Test restored traces are evicted first."""
     hass.state = CoreState.not_running
-    id = 1
+    id_number = 1
 
     trace_uuids = []
 
@@ -661,7 +661,7 @@ async def test_restore_traces_late_overflow(
 ):
     """Test restored traces are evicted first."""
     hass.state = CoreState.not_running
-    id = 1
+    id_number = 1
 
     trace_uuids = []
 
@@ -720,12 +720,12 @@ async def test_restore_traces_late_overflow(
 @pytest.mark.parametrize("domain", ["automation", "script"])
 async def test_trace_no_traces(hass, hass_ws_client, domain):
     """Test the storing traces for a script or automation can be disabled."""
-    id = 1
+    id_number = 1
 
     def next_id():
-        nonlocal id
-        id += 1
-        return id
+        nonlocal id_number
+        id_number += 1
+        return id_number
 
     sun_config = {
         "id": "sun",
@@ -780,12 +780,12 @@ async def test_list_traces(
     hass, hass_ws_client, domain, prefix, trigger, last_step, script_execution
 ):
     """Test listing script and automation traces."""
-    id = 1
+    id_number = 1
 
     def next_id():
-        nonlocal id
-        id += 1
-        return id
+        nonlocal id_number
+        id_number += 1
+        return id_number
 
     sun_config = {
         "id": "sun",
@@ -907,12 +907,12 @@ async def test_list_traces(
 )
 async def test_nested_traces(hass, hass_ws_client, domain, prefix, extra_trace_keys):
     """Test nested automation and script traces."""
-    id = 1
+    id_number = 1
 
     def next_id():
-        nonlocal id
-        id += 1
-        return id
+        nonlocal id_number
+        id_number += 1
+        return id_number
 
     sun_config = {
         "id": "sun",
@@ -965,12 +965,12 @@ async def test_nested_traces(hass, hass_ws_client, domain, prefix, extra_trace_k
 )
 async def test_breakpoints(hass, hass_ws_client, domain, prefix):
     """Test script and automation breakpoints."""
-    id = 1
+    id_number = 1
 
     def next_id():
-        nonlocal id
-        id += 1
-        return id
+        nonlocal id_number
+        id_number += 1
+        return id_number
 
     async def assert_last_step(item_id, expected_action, expected_state):
         await client.send_json(
@@ -1134,12 +1134,12 @@ async def test_breakpoints(hass, hass_ws_client, domain, prefix):
 )
 async def test_breakpoints_2(hass, hass_ws_client, domain, prefix):
     """Test execution resumes and breakpoints are removed after subscription removed."""
-    id = 1
+    id_number = 1
 
     def next_id():
-        nonlocal id
-        id += 1
-        return id
+        nonlocal id_number
+        id_number += 1
+        return id_number
 
     async def assert_last_step(item_id, expected_action, expected_state):
         await client.send_json(
@@ -1237,12 +1237,12 @@ async def test_breakpoints_2(hass, hass_ws_client, domain, prefix):
 )
 async def test_breakpoints_3(hass, hass_ws_client, domain, prefix):
     """Test breakpoints can be cleared."""
-    id = 1
+    id_number = 1
 
     def next_id():
-        nonlocal id
-        id += 1
-        return id
+        nonlocal id_number
+        id_number += 1
+        return id_number
 
     async def assert_last_step(item_id, expected_action, expected_state):
         await client.send_json(
@@ -1389,12 +1389,12 @@ async def test_script_mode(
     hass, hass_ws_client, script_mode, max_runs, script_execution
 ):
     """Test overlapping runs with max_runs > 1."""
-    id = 1
+    id_number = 1
 
     def next_id():
-        nonlocal id
-        id += 1
-        return id
+        nonlocal id_number
+        id_number += 1
+        return id_number
 
     flag = asyncio.Event()
 
@@ -1452,12 +1452,12 @@ async def test_script_mode(
 )
 async def test_script_mode_2(hass, hass_ws_client, script_mode, script_execution):
     """Test overlapping runs with max_runs > 1."""
-    id = 1
+    id_number = 1
 
     def next_id():
-        nonlocal id
-        id += 1
-        return id
+        nonlocal id_number
+        id_number += 1
+        return id_number
 
     flag = asyncio.Event()
 
@@ -1524,12 +1524,12 @@ async def test_trace_blueprint_automation(
     hass, hass_ws_client, enable_custom_integrations
 ):
     """Test trace of blueprint automation."""
-    id = 1
+    id_number = 1
 
     def next_id():
-        nonlocal id
-        id += 1
-        return id
+        nonlocal id_number
+        id_number += 1
+        return id_number
 
     domain = "automation"
     sun_config = {

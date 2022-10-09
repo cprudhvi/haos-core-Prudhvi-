@@ -173,7 +173,7 @@ def test_compile_hourly_statistics_purged_state_changes(
     hist = history.get_significant_states(hass, zero, four)
     assert dict(states) == dict(hist)
 
-    mean = min = max = float(hist["sensor.test1"][-1].state)
+    mean = min = maximum = float(hist["sensor.test1"][-1].state)
 
     # Purge all states from the database
     with patch(
@@ -2879,11 +2879,11 @@ async def test_validate_statistics_supported_device_class(
     hass, hass_ws_client, recorder_mock, units, attributes, unit
 ):
     """Test validate_statistics."""
-    id = 1
+    id_number = 1
 
     def next_id():
-        nonlocal id
-        id += 1
+        nonlocal id_number
+        id_number += 1
         return id
 
     async def assert_validation_result(client, expected_result):
@@ -2974,12 +2974,12 @@ async def test_validate_statistics_supported_device_class_2(
     hass, hass_ws_client, recorder_mock, units, attributes, unit
 ):
     """Test validate_statistics."""
-    id = 1
+    id_number = 1
 
     def next_id():
-        nonlocal id
-        id += 1
-        return id
+        nonlocal id_number
+        id_number += 1
+        return id_number
 
     async def assert_validation_result(client, expected_result):
         await client.send_json(
@@ -3064,12 +3064,12 @@ async def test_validate_statistics_unsupported_state_class(
     hass, hass_ws_client, recorder_mock, units, attributes, unit
 ):
     """Test validate_statistics."""
-    id = 1
+    id_number = 1
 
     def next_id():
-        nonlocal id
-        id += 1
-        return id
+        nonlocal id_number
+        id_number += 1
+        return id_number
 
     async def assert_validation_result(client, expected_result):
         await client.send_json(
@@ -3128,12 +3128,12 @@ async def test_validate_statistics_sensor_no_longer_recorded(
     hass, hass_ws_client, recorder_mock, units, attributes, unit
 ):
     """Test validate_statistics."""
-    id = 1
+    id_number = 1
 
     def next_id():
-        nonlocal id
-        id += 1
-        return id
+        nonlocal id_number
+        id_number += 1
+        return id_number
 
     async def assert_validation_result(client, expected_result):
         await client.send_json(
@@ -3189,12 +3189,12 @@ async def test_validate_statistics_sensor_not_recorded(
     hass, hass_ws_client, recorder_mock, units, attributes, unit
 ):
     """Test validate_statistics."""
-    id = 1
+    id_number = 1
 
     def next_id():
-        nonlocal id
-        id += 1
-        return id
+        nonlocal id_number
+        id_number += 1
+        return id_number
 
     async def assert_validation_result(client, expected_result):
         await client.send_json(
@@ -3247,12 +3247,12 @@ async def test_validate_statistics_sensor_removed(
     hass, hass_ws_client, recorder_mock, units, attributes, unit
 ):
     """Test validate_statistics."""
-    id = 1
+    id_number = 1
 
     def next_id():
-        nonlocal id
-        id += 1
-        return id
+        nonlocal id_number
+        id_number += 1
+        return id_number
 
     async def assert_validation_result(client, expected_result):
         await client.send_json(
@@ -3303,12 +3303,12 @@ async def test_validate_statistics_unsupported_device_class(
     hass, recorder_mock, hass_ws_client, attributes
 ):
     """Test validate_statistics."""
-    id = 1
+    id_number = 1
 
     def next_id():
-        nonlocal id
-        id += 1
-        return id
+        nonlocal id_number
+        id_number += 1
+        return id_number
 
     async def assert_validation_result(client, expected_result):
         await client.send_json(
